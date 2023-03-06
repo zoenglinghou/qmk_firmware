@@ -67,13 +67,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 enum combos {
     ALT_C_COPY,
     ALT_C_PASTE,
+    COMBO_LENGTH,
 };
+
+uint16_t COMBO_LEN = COMBO_LENGTH;
 
 // Mac-Like copy-an-paste
 const uint16_t PROGMEM mac_copy[] = {KC_LALT, KC_C, COMBO_END};
 const uint16_t PROGMEM mac_paste[] = {KC_LALT, KC_V, COMBO_END};
 
-combo_t key_combos[COMBO_COUNT] = {
+combo_t key_combos[] = {
     [ALT_C_COPY] = COMBO(mac_copy, KC_COPY),
-    [ALT_C_PASTE] = COMBO(mac_paste, KC_COPY),
+    [ALT_C_PASTE] = COMBO(mac_paste, KC_PASTE),
 };
